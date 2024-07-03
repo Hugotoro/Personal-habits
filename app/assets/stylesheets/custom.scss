@@ -1,0 +1,14 @@
+@import "variables";
+
+body {
+  background-color: $primary-color;
+
+  .container {
+    margin: 0 auto;
+    padding: 20px;
+
+    h1 {
+      color: darken($primary-color, 10%);
+    }
+  }
+}
