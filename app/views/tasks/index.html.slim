@@ -1,0 +1,13 @@
+p style="color: green" = notice
+
+h1 = "Tasks for #{@dashboard.title}"
+
+#task
+  - @task.each do |task|
+    = task.name
+    = link_to "ver tarea", dashboard_task_path(@dashboard, task)
+    = link_to "Edit", edit_dashboard_task_path(@dashboard, task)
+    = link_to "Delete", dashboard_task_path(@dashboard, task), method: :delete, data: { confirm: 'Are you sure?' }
+    br
+
+= link_to "Back to tasks", dashboard_path(@dashboard)

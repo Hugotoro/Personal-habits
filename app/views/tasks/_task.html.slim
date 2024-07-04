@@ -1,0 +1,9 @@
+div id="#{dom_id task}"
+  p
+    strong Name:
+    = task.name
+    - if @dashboard.present?
+      = link_to "ver tarea", dashboard_task_path(@dashboard, task)
+      = link_to "Edit", edit_dashboard_task_path(@dashboard, task)
+      = link_to "Delete", dashboard_task_path(@dashboard, task), method: :delete, data: { confirm: 'Are you sure?' }
+

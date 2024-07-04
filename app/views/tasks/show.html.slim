@@ -1,0 +1,31 @@
+p style="color: green" = notice
+
+div id="#{dom_id @task}"
+  p
+    strong Name:
+    = @task.name
+  p
+    strong Description:
+    = @task.description
+  p
+    strong Check:
+    = @task.check
+  p
+    strong Tracker check:
+    = @task.tracker_check
+  p
+    strong End date:
+    - if @task.end_date.present?
+      = @task.end_date
+    - else 
+      = " Sin fecha de finalizacion"
+  p
+    strong Dashboard:
+    = @task.dashboard_id
+
+div
+  = link_to "Edit this task", edit_dashboard_task_path(@task.dashboard, @task)
+  '|
+  = link_to "Back to tasks", dashboard_tasks_path(@task.dashboard)
+
+  = button_to "Destroy this task", dashboard_task_path(@task.dashboard, @task), method: :delete
