@@ -1,0 +1,12 @@
+p style="color: green" = notice
+
+h1 Dashboards
+
+#dashboards
+  - @dashboards.each do |dashboard|
+    fieldset 
+      == render dashboard
+      p
+        = link_to "Show this dashboard", dashboard
+
+= link_to "New dashboard", new_dashboard_path

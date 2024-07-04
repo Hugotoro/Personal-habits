@@ -1,0 +1,22 @@
+div id="#{dom_id dashboard}"
+  p
+    strong Description:
+    =< dashboard.title
+  p
+    strong Description:
+    =< dashboard.description
+  p
+    strong Date goal:
+    - if dashboard.date_goal.present?
+      = dashboard.date_goal
+    - else
+      = " Sin fecha de meta"
+  hr
+    - if dashboard.task.present?
+      p = "Estas son las tareas de #{dashboard.title}:"
+      == render partial: 'tasks/task', collection: dashboard.task, as: :task, locals: { dashboard: dashboard }
+    - else
+      p = "#{dashboard.title} No posee crea algunas"
+      = link_to "Crear tarea para #{dashboard.title}", new_dashboard_task_path(dashboard_id: dashboard.id)
+
+
